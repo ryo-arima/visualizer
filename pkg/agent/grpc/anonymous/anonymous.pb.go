@@ -21,7 +21,7 @@ const (
 )
 
 // The request message containing the user's name.
-type HelloRequest struct {
+type AgentRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -29,8 +29,8 @@ type HelloRequest struct {
 	Name *string `protobuf:"bytes,1,req,name=name" json:"name,omitempty"`
 }
 
-func (x *HelloRequest) Reset() {
-	*x = HelloRequest{}
+func (x *AgentRequest) Reset() {
+	*x = AgentRequest{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_anonymous_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -38,13 +38,13 @@ func (x *HelloRequest) Reset() {
 	}
 }
 
-func (x *HelloRequest) String() string {
+func (x *AgentRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*HelloRequest) ProtoMessage() {}
+func (*AgentRequest) ProtoMessage() {}
 
-func (x *HelloRequest) ProtoReflect() protoreflect.Message {
+func (x *AgentRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_anonymous_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -56,12 +56,12 @@ func (x *HelloRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use HelloRequest.ProtoReflect.Descriptor instead.
-func (*HelloRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use AgentRequest.ProtoReflect.Descriptor instead.
+func (*AgentRequest) Descriptor() ([]byte, []int) {
 	return file_anonymous_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *HelloRequest) GetName() string {
+func (x *AgentRequest) GetName() string {
 	if x != nil && x.Name != nil {
 		return *x.Name
 	}
@@ -69,7 +69,7 @@ func (x *HelloRequest) GetName() string {
 }
 
 // The response message containing the greetings
-type HelloReply struct {
+type AgentResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -77,8 +77,8 @@ type HelloReply struct {
 	Message *string `protobuf:"bytes,1,req,name=message" json:"message,omitempty"`
 }
 
-func (x *HelloReply) Reset() {
-	*x = HelloReply{}
+func (x *AgentResponse) Reset() {
+	*x = AgentResponse{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_anonymous_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -86,13 +86,13 @@ func (x *HelloReply) Reset() {
 	}
 }
 
-func (x *HelloReply) String() string {
+func (x *AgentResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*HelloReply) ProtoMessage() {}
+func (*AgentResponse) ProtoMessage() {}
 
-func (x *HelloReply) ProtoReflect() protoreflect.Message {
+func (x *AgentResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_anonymous_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -104,12 +104,12 @@ func (x *HelloReply) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use HelloReply.ProtoReflect.Descriptor instead.
-func (*HelloReply) Descriptor() ([]byte, []int) {
+// Deprecated: Use AgentResponse.ProtoReflect.Descriptor instead.
+func (*AgentResponse) Descriptor() ([]byte, []int) {
 	return file_anonymous_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *HelloReply) GetMessage() string {
+func (x *AgentResponse) GetMessage() string {
 	if x != nil && x.Message != nil {
 		return *x.Message
 	}
@@ -120,19 +120,17 @@ var File_anonymous_proto protoreflect.FileDescriptor
 
 var file_anonymous_proto_rawDesc = []byte{
 	0x0a, 0x0f, 0x61, 0x6e, 0x6f, 0x6e, 0x79, 0x6d, 0x6f, 0x75, 0x73, 0x2e, 0x70, 0x72, 0x6f, 0x74,
-	0x6f, 0x22, 0x22, 0x0a, 0x0c, 0x48, 0x65, 0x6c, 0x6c, 0x6f, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
+	0x6f, 0x22, 0x22, 0x0a, 0x0c, 0x41, 0x67, 0x65, 0x6e, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
 	0x74, 0x12, 0x12, 0x0a, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x01, 0x20, 0x02, 0x28, 0x09, 0x52,
-	0x04, 0x6e, 0x61, 0x6d, 0x65, 0x22, 0x26, 0x0a, 0x0a, 0x48, 0x65, 0x6c, 0x6c, 0x6f, 0x52, 0x65,
-	0x70, 0x6c, 0x79, 0x12, 0x18, 0x0a, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x18, 0x01,
-	0x20, 0x02, 0x28, 0x09, 0x52, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x32, 0x62, 0x0a,
-	0x07, 0x47, 0x72, 0x65, 0x65, 0x74, 0x65, 0x72, 0x12, 0x28, 0x0a, 0x08, 0x53, 0x61, 0x79, 0x48,
-	0x65, 0x6c, 0x6c, 0x6f, 0x12, 0x0d, 0x2e, 0x48, 0x65, 0x6c, 0x6c, 0x6f, 0x52, 0x65, 0x71, 0x75,
-	0x65, 0x73, 0x74, 0x1a, 0x0b, 0x2e, 0x48, 0x65, 0x6c, 0x6c, 0x6f, 0x52, 0x65, 0x70, 0x6c, 0x79,
-	0x22, 0x00, 0x12, 0x2d, 0x0a, 0x0d, 0x53, 0x61, 0x79, 0x48, 0x65, 0x6c, 0x6c, 0x6f, 0x41, 0x67,
-	0x61, 0x69, 0x6e, 0x12, 0x0d, 0x2e, 0x48, 0x65, 0x6c, 0x6c, 0x6f, 0x52, 0x65, 0x71, 0x75, 0x65,
-	0x73, 0x74, 0x1a, 0x0b, 0x2e, 0x48, 0x65, 0x6c, 0x6c, 0x6f, 0x52, 0x65, 0x70, 0x6c, 0x79, 0x22,
-	0x00, 0x42, 0x1a, 0x5a, 0x18, 0x70, 0x6b, 0x67, 0x2f, 0x61, 0x67, 0x65, 0x6e, 0x74, 0x2f, 0x67,
-	0x72, 0x70, 0x63, 0x2f, 0x61, 0x6e, 0x6f, 0x6e, 0x79, 0x6d, 0x6f, 0x75, 0x73,
+	0x04, 0x6e, 0x61, 0x6d, 0x65, 0x22, 0x29, 0x0a, 0x0d, 0x41, 0x67, 0x65, 0x6e, 0x74, 0x52, 0x65,
+	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67,
+	0x65, 0x18, 0x01, 0x20, 0x02, 0x28, 0x09, 0x52, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65,
+	0x32, 0x36, 0x0a, 0x05, 0x41, 0x67, 0x65, 0x6e, 0x74, 0x12, 0x2d, 0x0a, 0x0a, 0x47, 0x65, 0x74,
+	0x50, 0x72, 0x6f, 0x63, 0x65, 0x73, 0x73, 0x12, 0x0d, 0x2e, 0x41, 0x67, 0x65, 0x6e, 0x74, 0x52,
+	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x0e, 0x2e, 0x41, 0x67, 0x65, 0x6e, 0x74, 0x52, 0x65,
+	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x42, 0x1a, 0x5a, 0x18, 0x70, 0x6b, 0x67, 0x2f,
+	0x61, 0x67, 0x65, 0x6e, 0x74, 0x2f, 0x67, 0x72, 0x70, 0x63, 0x2f, 0x61, 0x6e, 0x6f, 0x6e, 0x79,
+	0x6d, 0x6f, 0x75, 0x73,
 }
 
 var (
@@ -149,16 +147,14 @@ func file_anonymous_proto_rawDescGZIP() []byte {
 
 var file_anonymous_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_anonymous_proto_goTypes = []any{
-	(*HelloRequest)(nil), // 0: HelloRequest
-	(*HelloReply)(nil),   // 1: HelloReply
+	(*AgentRequest)(nil),  // 0: AgentRequest
+	(*AgentResponse)(nil), // 1: AgentResponse
 }
 var file_anonymous_proto_depIdxs = []int32{
-	0, // 0: Greeter.SayHello:input_type -> HelloRequest
-	0, // 1: Greeter.SayHelloAgain:input_type -> HelloRequest
-	1, // 2: Greeter.SayHello:output_type -> HelloReply
-	1, // 3: Greeter.SayHelloAgain:output_type -> HelloReply
-	2, // [2:4] is the sub-list for method output_type
-	0, // [0:2] is the sub-list for method input_type
+	0, // 0: Agent.GetProcess:input_type -> AgentRequest
+	1, // 1: Agent.GetProcess:output_type -> AgentResponse
+	1, // [1:2] is the sub-list for method output_type
+	0, // [0:1] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
 	0, // [0:0] is the sub-list for extension extendee
 	0, // [0:0] is the sub-list for field type_name
@@ -171,7 +167,7 @@ func file_anonymous_proto_init() {
 	}
 	if !protoimpl.UnsafeEnabled {
 		file_anonymous_proto_msgTypes[0].Exporter = func(v any, i int) any {
-			switch v := v.(*HelloRequest); i {
+			switch v := v.(*AgentRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -183,7 +179,7 @@ func file_anonymous_proto_init() {
 			}
 		}
 		file_anonymous_proto_msgTypes[1].Exporter = func(v any, i int) any {
-			switch v := v.(*HelloReply); i {
+			switch v := v.(*AgentResponse); i {
 			case 0:
 				return &v.state
 			case 1:

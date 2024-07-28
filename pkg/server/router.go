@@ -9,29 +9,28 @@ import (
 )
 
 func InitRouter(conf config.BaseConfig) *gin.Engine {
-	
+
 	elementsRepository := repository.NewElementsRepository(conf)
 	elementsControllerForPublic := controller.NewElementsControllerForPublic(elementsRepository)
 	elementsControllerForInternal := controller.NewElementsControllerForInternal(elementsRepository)
 	elementsControllerForPrivate := controller.NewElementsControllerForPrivate(elementsRepository)
-	
+
 	relationsRepository := repository.NewRelationsRepository(conf)
 	relationsControllerForPublic := controller.NewRelationsControllerForPublic(relationsRepository)
 	relationsControllerForInternal := controller.NewRelationsControllerForInternal(relationsRepository)
 	relationsControllerForPrivate := controller.NewRelationsControllerForPrivate(relationsRepository)
-	
+
 	layersRepository := repository.NewLayersRepository(conf)
 	layersControllerForPublic := controller.NewLayersControllerForPublic(layersRepository)
 	layersControllerForInternal := controller.NewLayersControllerForInternal(layersRepository)
 	layersControllerForPrivate := controller.NewLayersControllerForPrivate(layersRepository)
-	
+
 	spacesRepository := repository.NewSpacesRepository(conf)
 	spacesControllerForPublic := controller.NewSpacesControllerForPublic(spacesRepository)
 	spacesControllerForInternal := controller.NewSpacesControllerForInternal(spacesRepository)
 	spacesControllerForPrivate := controller.NewSpacesControllerForPrivate(spacesRepository)
-	
-	
-    router := gin.Default()
+
+	router := gin.Default()
 	privateAPI := router.Group("api/private")
 	internalAPI := router.Group("api/internal")
 	publicAPI := router.Group("api/public")
@@ -40,7 +39,20 @@ func InitRouter(conf config.BaseConfig) *gin.Engine {
 	internalAPI.Use(middleware.ForInternal(conf))
 	privateAPI.Use(middleware.ForPrivate(conf))
 
-	
+	//agent
+	// publicAPI.GET("/agents", agentsControllerForPublic.GetAgents)
+	// publicAPI.POST("/agents", agentsControllerForPublic.CreateAgents)
+	// publicAPI.PUT("/agents", agentsControllerForPublic.UpdateAgents)
+	// publicAPI.DELETE("/agents", agentsControllerForPublic.DeleteAgents)
+	// internalAPI.GET("/agents", agentsControllerForInternal.GetAgents)
+	// internalAPI.POST("/agents", agentsControllerForInternal.CreateAgents)
+	// internalAPI.PUT("/agents", agentsControllerForInternal.UpdateAgents)
+	// internalAPI.DELETE("/agents", agentsControllerForInternal.DeleteAgents)
+	// privateAPI.GET("/agents", agentsControllerForPrivate.GetAgents)
+	// privateAPI.POST("/agents", agentsControllerForPrivate.CreateAgents)
+	// privateAPI.PUT("/agents", agentsControllerForPrivate.UpdateAgents)
+	// privateAPI.DELETE("/agents", agentsControllerForPrivate.DeleteAgents)
+
 	//elements
 	publicAPI.GET("/elementss", elementsControllerForPublic.GetElementss)
 	internalAPI.GET("/elementss", elementsControllerForInternal.GetElementss)
@@ -51,7 +63,7 @@ func InitRouter(conf config.BaseConfig) *gin.Engine {
 	privateAPI.POST("/elements", elementsControllerForPrivate.CreateElements)
 	privateAPI.PUT("/elements", elementsControllerForPrivate.UpdateElements)
 	privateAPI.DELETE("/elements", elementsControllerForPrivate.DeleteElements)
-	
+
 	//relations
 	publicAPI.GET("/relationss", relationsControllerForPublic.GetRelationss)
 	internalAPI.GET("/relationss", relationsControllerForInternal.GetRelationss)
@@ -62,7 +74,7 @@ func InitRouter(conf config.BaseConfig) *gin.Engine {
 	privateAPI.POST("/relations", relationsControllerForPrivate.CreateRelations)
 	privateAPI.PUT("/relations", relationsControllerForPrivate.UpdateRelations)
 	privateAPI.DELETE("/relations", relationsControllerForPrivate.DeleteRelations)
-	
+
 	//layers
 	publicAPI.GET("/layerss", layersControllerForPublic.GetLayerss)
 	internalAPI.GET("/layerss", layersControllerForInternal.GetLayerss)
@@ -73,7 +85,7 @@ func InitRouter(conf config.BaseConfig) *gin.Engine {
 	privateAPI.POST("/layers", layersControllerForPrivate.CreateLayers)
 	privateAPI.PUT("/layers", layersControllerForPrivate.UpdateLayers)
 	privateAPI.DELETE("/layers", layersControllerForPrivate.DeleteLayers)
-	
+
 	//spaces
 	publicAPI.GET("/spacess", spacesControllerForPublic.GetSpacess)
 	internalAPI.GET("/spacess", spacesControllerForInternal.GetSpacess)
@@ -84,7 +96,6 @@ func InitRouter(conf config.BaseConfig) *gin.Engine {
 	privateAPI.POST("/spaces", spacesControllerForPrivate.CreateSpaces)
 	privateAPI.PUT("/spaces", spacesControllerForPrivate.UpdateSpaces)
 	privateAPI.DELETE("/spaces", spacesControllerForPrivate.DeleteSpaces)
-	
 
 	return router
 }
