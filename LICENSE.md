@@ -1,4 +1,5 @@
 <details><summary>English(英語)</summary>
+
 Mozilla Public License Version 2.0
 ==================================
 
@@ -357,6 +358,7 @@ You may add additional accurate notices of copyright ownership.
 </details>
 
 <details><summary>Japanese(日本語)</summary>
+
 Mozillaパブリック・ライセンス 2.0 (MPL-2.0)
 ===========================================
 
