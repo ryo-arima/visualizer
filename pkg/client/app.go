@@ -58,6 +58,8 @@ func ClientForAppUser(conf config.BaseConfig) {
 	baseCmdForAppUser := InitBaseCmdForAppUser()
 
 	//create
+	createAgentsCmdForAppUser := controller.InitCreateAgentsCmdForAppUser(conf)
+	baseCmdForAppUser.Create.AddCommand(createAgentsCmdForAppUser)
 	createElementsCmdForAppUser := controller.InitCreateElementsCmdForAppUser(conf)
 	baseCmdForAppUser.Create.AddCommand(createElementsCmdForAppUser)
 	createRelationsCmdForAppUser := controller.InitCreateRelationsCmdForAppUser(conf)
@@ -69,6 +71,8 @@ func ClientForAppUser(conf config.BaseConfig) {
 	rootCmdForAppUser.AddCommand(baseCmdForAppUser.Create)
 	
 	//get
+	getAgentsCmdForAppUser := controller.InitGetAgentsCmdForAppUser(conf)
+	baseCmdForAppUser.Get.AddCommand(getAgentsCmdForAppUser)
 	getElementsCmdForAppUser := controller.InitGetElementsCmdForAppUser(conf)
 	baseCmdForAppUser.Get.AddCommand(getElementsCmdForAppUser)
 	getRelationsCmdForAppUser := controller.InitGetRelationsCmdForAppUser(conf)
@@ -80,6 +84,8 @@ func ClientForAppUser(conf config.BaseConfig) {
 	rootCmdForAppUser.AddCommand(baseCmdForAppUser.Get)
 	
 	//update
+	updateAgentsCmdForAppUser := controller.InitUpdateAgentsCmdForAppUser(conf)
+	baseCmdForAppUser.Update.AddCommand(updateAgentsCmdForAppUser)
 	updateElementsCmdForAppUser := controller.InitUpdateElementsCmdForAppUser(conf)
 	baseCmdForAppUser.Update.AddCommand(updateElementsCmdForAppUser)
 	updateRelationsCmdForAppUser := controller.InitUpdateRelationsCmdForAppUser(conf)
@@ -91,6 +97,8 @@ func ClientForAppUser(conf config.BaseConfig) {
 	rootCmdForAppUser.AddCommand(baseCmdForAppUser.Update)
 	
 	//delete
+	deleteAgentsCmdForAppUser := controller.InitDeleteAgentsCmdForAppUser(conf)
+	baseCmdForAppUser.Delete.AddCommand(deleteAgentsCmdForAppUser)
 	deleteElementsCmdForAppUser := controller.InitDeleteElementsCmdForAppUser(conf)
 	baseCmdForAppUser.Delete.AddCommand(deleteElementsCmdForAppUser)
 	deleteRelationsCmdForAppUser := controller.InitDeleteRelationsCmdForAppUser(conf)

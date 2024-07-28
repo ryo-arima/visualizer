@@ -37,6 +37,8 @@ func ClientForAnonymousUser(conf config.BaseConfig) {
 	baseCmdForAnonymousUser := InitBaseCmdForAnonymousUser()
 
 	//get
+	getAgentsCmdForAnonymousUser := controller.InitGetAgentsCmdForAnonymousUser(conf)
+	baseCmdForAnonymousUser.Get.AddCommand(getAgentsCmdForAnonymousUser)
 	getElementsCmdForAnonymousUser := controller.InitGetElementsCmdForAnonymousUser(conf)
 	baseCmdForAnonymousUser.Get.AddCommand(getElementsCmdForAnonymousUser)
 	getRelationsCmdForAnonymousUser := controller.InitGetRelationsCmdForAnonymousUser(conf)

@@ -65,6 +65,8 @@ func ClientForAdminUser(conf config.BaseConfig) {
 	baseCmdForAdminUser := InitBaseCmdForAdminUser()
 
 	//bootstrap
+	bootstrapAgentsCmdForAdminUser := controller.InitBootstrapAgentsCmdForAdminUser(conf)
+	baseCmdForAdminUser.Bootstrap.AddCommand(bootstrapAgentsCmdForAdminUser)
 	bootstrapElementsCmdForAdminUser := controller.InitBootstrapElementsCmdForAdminUser(conf)
 	baseCmdForAdminUser.Bootstrap.AddCommand(bootstrapElementsCmdForAdminUser)
 	bootstrapRelationsCmdForAdminUser := controller.InitBootstrapRelationsCmdForAdminUser(conf)
@@ -76,6 +78,8 @@ func ClientForAdminUser(conf config.BaseConfig) {
 	rootCmdForAdminUser.AddCommand(baseCmdForAdminUser.Bootstrap)
 
 	//create
+	createAgentsCmdForAdminUser := controller.InitCreateAgentsCmdForAdminUser(conf)
+	baseCmdForAdminUser.Create.AddCommand(createAgentsCmdForAdminUser)
 	createElementsCmdForAdminUser := controller.InitCreateElementsCmdForAdminUser(conf)
 	baseCmdForAdminUser.Create.AddCommand(createElementsCmdForAdminUser)
 	createRelationsCmdForAdminUser := controller.InitCreateRelationsCmdForAdminUser(conf)
@@ -87,6 +91,8 @@ func ClientForAdminUser(conf config.BaseConfig) {
 	rootCmdForAdminUser.AddCommand(baseCmdForAdminUser.Create)
 
 	//get
+	getAgentsCmdForAdminUser := controller.InitGetAgentsCmdForAdminUser(conf)
+	baseCmdForAdminUser.Get.AddCommand(getAgentsCmdForAdminUser)
 	getElementsCmdForAdminUser := controller.InitGetElementsCmdForAdminUser(conf)
 	baseCmdForAdminUser.Get.AddCommand(getElementsCmdForAdminUser)
 	getRelationsCmdForAdminUser := controller.InitGetRelationsCmdForAdminUser(conf)
@@ -98,6 +104,8 @@ func ClientForAdminUser(conf config.BaseConfig) {
 	rootCmdForAdminUser.AddCommand(baseCmdForAdminUser.Get)
 
 	//update
+	updateAgentsCmdForAdminUser := controller.InitUpdateAgentsCmdForAdminUser(conf)
+	baseCmdForAdminUser.Update.AddCommand(updateAgentsCmdForAdminUser)
 	updateElementsCmdForAdminUser := controller.InitUpdateElementsCmdForAdminUser(conf)
 	baseCmdForAdminUser.Update.AddCommand(updateElementsCmdForAdminUser)
 	updateRelationsCmdForAdminUser := controller.InitUpdateRelationsCmdForAdminUser(conf)
@@ -109,6 +117,8 @@ func ClientForAdminUser(conf config.BaseConfig) {
 	rootCmdForAdminUser.AddCommand(baseCmdForAdminUser.Update)
 	
 	//delete
+	deleteAgentsCmdForAdminUser := controller.InitDeleteAgentsCmdForAdminUser(conf)
+	baseCmdForAdminUser.Delete.AddCommand(deleteAgentsCmdForAdminUser)
 	deleteElementsCmdForAdminUser := controller.InitDeleteElementsCmdForAdminUser(conf)
 	baseCmdForAdminUser.Delete.AddCommand(deleteElementsCmdForAdminUser)
 	deleteRelationsCmdForAdminUser := controller.InitDeleteRelationsCmdForAdminUser(conf)

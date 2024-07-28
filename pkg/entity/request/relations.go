@@ -1,6 +1,6 @@
 package request
 
 type RelationsRequest struct {
-    ID uint
-    UUID string
+	ID   uint
+	UUID string
 }

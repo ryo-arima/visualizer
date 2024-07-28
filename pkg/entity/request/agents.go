@@ -1,6 +1,6 @@
 package request
 
-type ElementsRequest struct {
-    ID uint
-    UUID string
+type AgentsRequest struct {
+	ID   uint
+	UUID string
 }

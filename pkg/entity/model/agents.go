@@ -9,3 +9,9 @@ type Agents struct {
 	UpdatedAt *time.Time
 	DeletedAt *time.Time
 }
+
+type AgentRpcArguments struct {
+}
+
+type AgentRpcReturns struct {
+}
