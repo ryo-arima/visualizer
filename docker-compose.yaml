@@ -1,0 +1,23 @@
+version: '3'
+services:
+  redis:
+    image: "arm64v8/redis:latest"
+    ports:
+      - "6379:6379"
+  
+  neo4j:
+    image: arm64v8/neo4j:latest
+    ports:
+      - 7474:7474
+      - 7687:7687
+  
+  mysql:
+    image: mysql:8.0.27
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: mysql
+      MYSQL_DATABASE: visualizer
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      TZ: 'Asia/Tokyo'
